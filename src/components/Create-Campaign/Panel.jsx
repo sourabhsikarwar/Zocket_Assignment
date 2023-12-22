@@ -4,8 +4,6 @@ import Cards from "./Cards";
 import CampaignContext from "../../contexts/campaignContext";
 
 const Panel = ({ step }) => {
-  const { data } = useContext(CampaignContext);
-  console.log(data.newCampaign);
   return (
     <div className="p-6 bg-white rounded-xl">
       <div className="border-b-2 border-gray-200 pb-2">

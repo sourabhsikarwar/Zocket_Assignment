@@ -76,9 +76,9 @@ const Budget = () => {
           <input
             id="steps-range"
             type="range"
-            min="100"
+            min="1000"
             max="100000"
-            step="100"
+            step="1000"
             value={data.newCampaign.budget}
             onChange={(e) => {
               dispatch({
@@ -92,7 +92,7 @@ const Budget = () => {
             className="w-full h-2 bg-gray-200 rounded-lg cursor-pointer"
           />
           <div className="my-3 flex justify-between">
-            <p className="text-secondaryText text-sm">100</p>
+            <p className="text-secondaryText text-sm">1000</p>
             <p className="text-secondaryText text-sm">1,00,000</p>
           </div>
         </div>

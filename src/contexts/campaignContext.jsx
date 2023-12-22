@@ -114,31 +114,71 @@ const campaignReducer = (state, action) => {
           caption: action.payload.caption,
         },
       };
-      case "ADD_CAMPAIGN":
-        return {
-          ...state,
-          campaignData: [...state.campaignData, state.newCampaign],
-          newCampaign: {
-            id: Math.floor(Math.random() * 1000) * 10,
-            on_off: true,
+    case "ADD_CAMPAIGN":
+      return {
+        ...state,
+        campaignData: [...state.campaignData, state.newCampaign],
+        newCampaign: {
+          id: Math.floor(Math.random() * 1000) * 10,
+          on_off: true,
+          title: "",
+          type: "",
+          createdAt: new Date().toLocaleDateString(),
+          startDate: new Date().getDate(),
+          endDate: new Date().getDate() + 30,
+          clicks: 0,
+          budget: 0,
+          location: "",
+          platform: {
             title: "",
-            type: "",
-            createdAt: new Date().toLocaleDateString(),
-            startDate: new Date().getDate(),
-            endDate: new Date().getDate() + 30,
-            clicks: 0,
-            budget: 0,
-            location: "",
-            platform: {
-              title: "",
-              img: "",
-            },
-            status: "Live",
             img: "",
-            postId: "",
-            caption: "",
           },
-        };
+          status: "Live",
+          img: "",
+          postId: "",
+          caption: "",
+        },
+      };
+    case "FILTER_CAMPAIGNS":
+      return {
+        ...state,
+        campaignData: state.campaignData.filter((campaign) => {
+          if (
+            action.payload.search === "" &&
+            action.payload.platform === "All" &&
+            action.payload.status === "All"
+          ) {
+            return campaign;
+          } else {
+            return (
+              campaign.title
+                .toLowerCase()
+                .includes(action.payload.search.toLowerCase()) &&
+              (campaign.platform.title
+                .toLowerCase()
+                .includes(action.payload.platform.toLowerCase()) ||
+                action.payload.platform === "All") &&
+              (campaign.status
+                .toLowerCase()
+                .includes(action.payload.status.toLowerCase()) ||
+                action.payload.status === "All")
+            );
+          }
+        }),
+      };
+    case "EDIT_CAMPAIGN":
+      return {
+        ...state,
+        campaignData: state.campaignData.map((campaign) =>
+          campaign.id === action.payload.id
+            ? {
+                ...campaign,
+                title: action.payload.title,
+                location: action.payload.location,
+              }
+            : campaign
+        ),
+      };
     default:
       return state;
   }

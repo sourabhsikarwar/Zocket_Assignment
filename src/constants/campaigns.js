@@ -5,6 +5,7 @@ import youtube from "../assets/images/youtube.png";
 import cam1 from "../assets/images/cam1.jpg";
 import cam2 from "../assets/images/cam2.jpg";
 
+// Already defind mock data for campaigns 
 export const campaigns = [
   {
     id: 1,
