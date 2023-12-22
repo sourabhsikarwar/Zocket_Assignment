@@ -1,4 +1,4 @@
-import bell from "../assets/images/Bell.png";
+import bell from "../assets/images/bell.png";
 
 const Navbar = () => {
   return (
