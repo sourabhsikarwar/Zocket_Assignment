@@ -5,7 +5,7 @@ import youtube from "../assets/images/youtube.png";
 import cam1 from "../assets/images/cam1.jpg";
 import cam2 from "../assets/images/cam2.jpg";
 
-// Already defind mock data for campaigns 
+// Already defind mock data for campaigns
 export const campaigns = [
   {
     id: 1,
@@ -24,7 +24,7 @@ export const campaigns = [
     },
     status: "Live",
     img: cam1,
-    postId: 1,
+    postId: "1",
     caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
@@ -44,7 +44,7 @@ export const campaigns = [
     },
     status: "Live",
     img: cam2,
-    postId: 2,
+    postId: "2",
     caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
@@ -64,7 +64,7 @@ export const campaigns = [
     },
     status: "Paused",
     img: cam1,
-    postId: 3,
+    postId: "3",
     caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
@@ -84,7 +84,7 @@ export const campaigns = [
     },
     status: "Exhausted",
     img: cam2,
-    postId: 4,
+    postId: "4",
     caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 ];

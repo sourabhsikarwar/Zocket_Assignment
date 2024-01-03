@@ -5,8 +5,8 @@ import CampaignContext from "../contexts/campaignContext";
 import { useNavigate } from "react-router-dom";
 
 const CreateCampaign = () => {
-  const [step, setStep] = useState(1);
-  const navigate = useNavigate()
+  const [step, setStep] = useState<number>(1);
+  const navigate = useNavigate();
   const handleStep = () => {
     setStep(step + 1);
   };
@@ -16,8 +16,8 @@ const CreateCampaign = () => {
       type: "ADD_CAMPAIGN",
       payload: data.newCampaign,
     });
-    navigate("/")
-  }
+    navigate("/");
+  };
   return (
     <div className="flex flex-col gap-8">
       <div className="flex justify-between items-center">
@@ -40,7 +40,8 @@ const CreateCampaign = () => {
             disabled={
               (step == 1 && data.newCampaign.type == "") ||
               (step == 2 && data.newCampaign.title == "") ||
-              (step == 3 && (data.newCampaign.budget === 0 || data.location == ""))
+              (step == 3 &&
+                (data.newCampaign.budget === 0 || data.location == ""))
             }
           >
             Continue

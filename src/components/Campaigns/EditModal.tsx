@@ -1,12 +1,19 @@
-import React, { useContext, useRef } from "react";
+import { useContext, useRef } from "react";
 import CampaignContext from "../../contexts/campaignContext";
+import { EditDataType } from "../../types/types";
 
-const EditModal = ({ editData, setEditData }) => {
+const EditModal = ({
+  editData,
+  setEditData,
+}: {
+  editData: EditDataType;
+  setEditData: React.Dispatch<React.SetStateAction<EditDataType>>;
+}) => {
   const { dispatch } = useContext(CampaignContext);
-  const modalRef = useRef(null);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   // editing function for campaign data inside modal
-  const handleEdit = (e) => {
+  const handleEdit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     dispatch({
       type: "EDIT_CAMPAIGN",
@@ -18,12 +25,14 @@ const EditModal = ({ editData, setEditData }) => {
     });
 
     // closing the modal using ref
-    modalRef.current.click();
+    if (modalRef.current) {
+      modalRef.current.click();
+    }
   };
   return (
     <div
       id="crud-modal"
-      tabIndex="-1"
+      tabIndex={-1}
       ref={modalRef}
       aria-hidden="true"
       className="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"

@@ -32,8 +32,12 @@ const Navbar = () => {
           <div className="flex items-center">
             <div className="flex items-center ms-3">
               <div className="flex justify-center items-center gap-4">
-                <p className="text-xs text-secondaryText">Free Trial ends in 2 Days</p>
-                <button className="bg-yellow-100 rounded-lg py-2 px-4 text-orange-500 font-bold text-sm">Buy Premium</button>
+                <p className="text-xs text-secondaryText">
+                  Free Trial ends in 2 Days
+                </p>
+                <button className="bg-yellow-100 rounded-lg py-2 px-4 text-orange-500 font-bold text-sm">
+                  Buy Premium
+                </button>
                 <img src={bell} alt="bell" className="w-5 cursor-pointer" />
                 <button
                   type="button"
@@ -47,7 +51,9 @@ const Navbar = () => {
                     src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
                     alt="user photo"
                   />
-                  <div className="text-sm font-medium text-gray-700">Sourabhs Cake Shop</div>
+                  <div className="text-sm font-medium text-gray-700">
+                    Sourabhs Cake Shop
+                  </div>
                 </button>
               </div>
               <div
@@ -55,10 +61,7 @@ const Navbar = () => {
                 id="dropdown-user"
               >
                 <div className="px-4 py-3" role="none">
-                  <p
-                    className="text-sm text-gray-600"
-                    role="none"
-                  >
+                  <p className="text-sm text-gray-600" role="none">
                     Sourabh Sikarwar
                   </p>
                   <p

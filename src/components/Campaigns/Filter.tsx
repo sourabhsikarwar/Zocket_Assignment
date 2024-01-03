@@ -1,4 +1,12 @@
-const Filter = ({ filter, setFilter }) => {
+import { FilterType } from "../../types/types";
+
+const Filter = ({
+  filter,
+  setFilter,
+}: {
+  filter: FilterType;
+  setFilter: React.Dispatch<React.SetStateAction<FilterType>>;
+}) => {
   return (
     <div className="flex flex-col sm:flex-row flex-wrap gap-y-4 justify-between items-start md:items-center">
       <input

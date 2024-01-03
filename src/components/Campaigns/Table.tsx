@@ -1,25 +1,32 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import Toggle from "../UI/Toggle";
 import edit from "../../assets/images/edit.png";
 import bin from "../../assets/images/bin.png";
 import EditModal from "./EditModal";
+import { EditDataType, InitiatStateType } from "../../types/types";
 
-const Table = ({ data, dispatch }) => {
-  // state for edited values 
-  const [editData, setEditData] = useState({
-    id: "",
+const Table = ({
+  data,
+  dispatch,
+}: {
+  data: InitiatStateType;
+  dispatch: React.Dispatch<any>;
+}) => {
+  // state for edited values
+  const [editData, setEditData] = useState<EditDataType>({
+    id: 0,
     active: false,
     title: "",
     location: "",
   });
 
   // handling deleting function for campaigns
-  const handleDelete = (id) => {
+  const handleDelete = (id: number) => {
     dispatch({ type: "DELETE_CAMPAIGN", payload: id });
   };
 
   // handling toggle function for campaigns
-  const handleToggle = (id) => {
+  const handleToggle = (id: number) => {
     dispatch({ type: "TOGGLE_STATUS", payload: id });
   };
 
@@ -123,7 +130,12 @@ const Table = ({ data, dispatch }) => {
                       data-modal-target="crud-modal"
                       data-modal-toggle="crud-modal"
                       onClick={() =>
-                        setEditData({ id: campaign.id, active: true, title: campaign.title, location: campaign.location })
+                        setEditData({
+                          id: campaign.id,
+                          active: true,
+                          title: campaign.title,
+                          location: campaign.location,
+                        })
                       }
                     />
                     <img

@@ -1,9 +1,7 @@
-import { useContext, useEffect, useState } from "react";
 import { heading } from "../../constants";
 import Cards from "./Cards";
-import CampaignContext from "../../contexts/campaignContext";
 
-const Panel = ({ step }) => {
+const Panel = ({ step }: { step: number }) => {
   return (
     <div className="p-6 bg-white rounded-xl">
       <div className="border-b-2 border-gray-200 pb-2">

@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "../assets/images/logo.webp";
 
 const Sidebar = () => {
@@ -13,7 +12,11 @@ const Sidebar = () => {
       <div className="h-full pb-4 overflow-y-auto bg-slate-900">
         <ul className="space-y-2 font-medium flex flex-col gap-y-4">
           <li>
-            <img src={logo} className="h-12 mx-auto my-8 rounded-full" alt="FlowBite Logo" />
+            <img
+              src={logo}
+              className="h-12 mx-auto my-8 rounded-full"
+              alt="FlowBite Logo"
+            />
           </li>
           <li>
             <a
@@ -35,7 +38,11 @@ const Sidebar = () => {
           <li>
             <a
               href="/"
-              className={`flex flex-col items-center py-2 pr-2 text-white border-l-4 hover:border-blue-600 hover:bg-slate-800 group text-xs ${path === "/" ? "border-blue-600 bg-slate-800" : "border-transparent bg-transparent"}`}
+              className={`flex flex-col items-center py-2 pr-2 text-white border-l-4 hover:border-blue-600 hover:bg-slate-800 group text-xs ${
+                path === "/"
+                  ? "border-blue-600 bg-slate-800"
+                  : "border-transparent bg-transparent"
+              }`}
             >
               <svg
                 className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -57,7 +64,6 @@ const Sidebar = () => {
               <svg
                 className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                 aria-hidden="true"
-
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 viewBox="0 0 20 18"

@@ -1,14 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Table from "../components/Campaigns/Table";
 import Filter from "../components/Campaigns/Filter";
 import { Link } from "react-router-dom";
 import CampaignContext from "../contexts/campaignContext";
+import { Campaign, FilterType } from "../types/types";
 
 const Campaigns = () => {
   const { data, dispatch } = useContext(CampaignContext);
   const [filteredData, setFilteredData] = useState(data);
 
-  const [filter, setFilter] = useState({
+  const [filter, setFilter] = useState<FilterType>({
     search: "",
     platform: "All",
     status: "All",
@@ -17,7 +18,7 @@ const Campaigns = () => {
   useEffect(() => {
     setFilteredData({
       ...data,
-      campaignData: data.campaignData.filter((campaign) => {
+      campaignData: data.campaignData.filter((campaign: Campaign) => {
         if (
           filter.search === "" &&
           filter.platform === "All" &&

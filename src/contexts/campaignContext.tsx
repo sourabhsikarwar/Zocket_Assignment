@@ -1,9 +1,15 @@
 import { createContext, useReducer } from "react";
 import { campaigns } from "../constants/campaigns";
+import { Campaign, InitiatStateType } from "../types/types";
 
-export const CampaignContext = createContext();
+export const CampaignContext = createContext(
+  {} as {
+    data: any;
+    dispatch: React.Dispatch<any>;
+  }
+);
 
-const initialState = {
+const initialState: InitiatStateType = {
   campaignData: campaigns,
   newCampaign: {
     id: Math.floor(Math.random() * 1000) * 10,
@@ -27,7 +33,10 @@ const initialState = {
   },
 };
 
-const campaignReducer = (state, action) => {
+const campaignReducer = (
+  state: InitiatStateType,
+  action: { type: string; payload: any }
+) => {
   switch (action.type) {
     case "SET_CAMPAIGN":
       return { ...state, campaignData: action.payload };
@@ -35,7 +44,7 @@ const campaignReducer = (state, action) => {
       return {
         ...state,
         campaignData: state.campaignData.filter(
-          (campaign) => campaign.id !== action.payload
+          (campaign: Campaign) => campaign.id !== action.payload
         ),
       };
     case "TOGGLE_STATUS":
@@ -184,7 +193,11 @@ const campaignReducer = (state, action) => {
   }
 };
 
-export const CampaignProvider = ({ children }) => {
+export const CampaignProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [state, dispatch] = useReducer(campaignReducer, initialState);
 
   return (

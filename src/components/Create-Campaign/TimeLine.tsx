@@ -1,9 +1,8 @@
-const TimeLine = ({ step }) => {
+const TimeLine = ({ step }: { step: number }) => {
   return (
     <div className="">
       <div className="w-full py-8">
         <div className="flex">
-          
           {/* step 1 of 4 */}
           <div className="w-1/4">
             <div className="relative mb-2">
@@ -102,7 +101,6 @@ const TimeLine = ({ step }) => {
                   3
                 </span>
               </div>
-              
             </div>
             <div
               className={`text-xs text-center md:text-sm font-semibold ${
@@ -157,8 +155,7 @@ const TimeLine = ({ step }) => {
                   top: "50%",
                   transform: "translate(160%, -50%)",
                 }}
-              >
-              </div>
+              ></div>
             </div>
             <div
               className={`text-xs text-center md:text-sm font-semibold ${

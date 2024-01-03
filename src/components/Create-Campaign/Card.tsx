@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import CampaignContext from "../../contexts/campaignContext";
+import { CardDataType } from "../../types/types";
 
-const Card = ({ cardData, type }) => {
+const Card = ({ cardData, type }: { cardData: CardDataType; type: string }) => {
   const { data, dispatch } = useContext(CampaignContext);
   switch (type) {
     case "Campaign-Card":
@@ -26,7 +27,7 @@ const Card = ({ cardData, type }) => {
             value={cardData.title}
             type="radio"
             name="cardData-type"
-            id={cardData.id}
+            id={cardData.id.toString()}
             onClick={() =>
               dispatch({
                 type: "SET_STEP_1_DATA",
@@ -70,7 +71,7 @@ const Card = ({ cardData, type }) => {
             value={cardData.title}
             type="radio"
             name="cardData-type"
-            id={cardData.id}
+            id={cardData.id.toString()}
             onClick={() =>
               dispatch({
                 type: "SET_STEP_2_DATA",
@@ -118,7 +119,7 @@ const Card = ({ cardData, type }) => {
             value={cardData.title}
             type="radio"
             name="cardData-type"
-            id={cardData.id}
+            id={cardData.id.toString()}
             onClick={() =>
               dispatch({
                 type: "SET_STEP_4_DATA",
